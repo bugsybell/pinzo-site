@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["G588ZXG856.com.pinzo.golf"],
+        "components": [{ "/": "/invite/*", "comment": "Friend invites open in the app" }]
+      }
+    ]
+  }
+}

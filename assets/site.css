@@ -109,6 +109,8 @@ section.feature img { width: 100%; height: auto; }
 .step p { color: var(--ink-soft); margin: 0; }
 
 .split { display: grid; grid-template-columns: .9fr 1.1fr; gap: 64px; align-items: center; padding-top: 72px; padding-bottom: 96px; border-top: 1px solid rgba(23,26,24,.06); }
+.split.flip { grid-template-columns: 1.1fr .9fr; }
+.split.flip > .split-copy { order: 2; }
 .split h2, .share h2, .world h2 { font-size: clamp(40px, 5vw, 60px); margin-bottom: 18px; }
 .split p, .share p, .world p { color: var(--ink-soft); font-size: 19px; max-width: 34ch; margin: 0; }
 .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
@@ -138,7 +140,8 @@ section.feature img { width: 100%; height: auto; }
   .hero2-phones .device { width: 250px; }
   .hero2-phones .side { width: 205px; }
   .steps { grid-template-columns: 1fr; gap: 72px; }
-  .split, .world-grid { grid-template-columns: 1fr; gap: 48px; }
+  .split, .split.flip, .world-grid { grid-template-columns: 1fr; gap: 48px; }
+  .split.flip > .split-copy { order: 0; }
   .cards { justify-content: flex-start; }
 }
 @media (max-width: 560px) {

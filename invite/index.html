@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>You're invited to Pinzo</title>
+<meta name="description" content="A friend would like to share where golf has taken them.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/favicon-64.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="og:title" content="You're invited to Pinzo">
+<meta property="og:description" content="A friend would like to share where golf has taken them.">
+<meta property="og:image" content="https://pinzo.golf/assets/cards/passport.jpg">
+<meta name="theme-color" content="#FBFAF7">
+<style>
+  .invite { text-align: center; padding: 72px 0 96px; }
+  .invite img.logo { width: 88px; height: 88px; border-radius: 22px; }
+  .invite h1 { margin: 28px 0 12px; }
+  .invite p { max-width: 30em; margin: 0 auto 28px; }
+  .invite .open { display: inline-block; padding: 16px 32px; border-radius: 999px; background: var(--forest, #243F37); color: #fff; font-weight: 600; text-decoration: none; }
+  .invite .small { margin-top: 28px; font-size: 15px; opacity: .75; }
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="/"><img src="/assets/logo-512.png" alt=""> Pinzo</a>
+  <nav><a href="/support/">Support</a><a href="/privacy/">Privacy</a></nav>
+</div></header>
+<main class="wrap narrow invite">
+  <img class="logo" src="/assets/logo-512.png" alt="">
+  <h1>You're invited to Pinzo</h1>
+  <p>A friend would like to share where golf has taken them: the courses they've played, their stamps and every new round. Open the invite in Pinzo on your iPhone to accept.</p>
+  <a class="open" id="open" href="pinzo://invite">Open in Pinzo</a>
+  <p class="small">Don't have Pinzo yet? It's free on the App Store. Get the app, then tap your invite link again. Each link works once and lasts seven days.</p>
+</main>
+<footer class="site"><div class="wrap">
+  <div><a href="/support/">Support</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="mailto:hello@pinzo.golf">hello@pinzo.golf</a></div>
+  <div>© 2026 Pinzo Golf Ltd.</div>
+</div></footer>
+<script>
+  // The code stays in this page; it isn't sent anywhere except to the Pinzo app.
+  var c = new URLSearchParams(location.search).get('c');
+  if (c && /^[A-Za-z0-9]{10,32}$/.test(c)) document.getElementById('open').href = 'pinzo://invite?c=' + c;
+</script>
+</body>
+</html>

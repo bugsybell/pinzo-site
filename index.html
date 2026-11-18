@@ -22,31 +22,21 @@
 </div></header>
 
 <main>
-  <section class="hero2">
-    <svg class="contours" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <g fill="none" stroke="currentColor" stroke-width="1">
-        <path d="M-50 620 C 180 540, 320 700, 560 610 S 920 470, 1250 560"/>
-        <path d="M-50 660 C 200 580, 330 740, 580 650 S 940 520, 1250 610"/>
-        <path d="M-50 700 C 220 620, 350 780, 600 690 S 960 570, 1250 660"/>
-        <path d="M-50 160 C 160 90, 360 230, 600 140 S 980 40, 1250 120"/>
-        <path d="M-50 120 C 150 50, 350 190, 590 100 S 970 0, 1250 80"/>
-        <ellipse cx="980" cy="330" rx="150" ry="96"/><ellipse cx="980" cy="330" rx="210" ry="140"/><ellipse cx="980" cy="330" rx="270" ry="184"/>
-        <ellipse cx="190" cy="380" rx="90" ry="58"/><ellipse cx="190" cy="380" rx="140" ry="92"/>
-      </g>
-    </svg>
-    <div class="wrap hero2-grid">
-      <div class="hero2-copy reveal">
+  <section class="ga-hero">
+    <div class="wrap ga-grid">
+      <div class="reveal">
         <h1>Your golf,<br>beautifully kept.</h1>
         <p class="lead">Every course you've played, every round and every score, and the places you still dream of, in one beautiful passport.</p>
         <div class="cta">
           <span class="badge">Coming soon to the App Store</span>
           <span class="cta-note">Free on iPhone</span>
         </div>
+        <div class="ga-hint"><i></i>Drag the globe.<span class="hover-only"> Hover a pin.</span></div>
       </div>
-      <div class="hero2-phones reveal">
-        <figure class="device side left"><img src="/assets/screens/passport.jpg" alt="The passport screen, with a globe of every country played"></figure>
-        <figure class="device main"><img src="/assets/screens/profile.jpg" alt="A golfer's Pinzo profile: name, home, courses, countries, rounds, handicap, favourite course and a globe of everywhere they've played"></figure>
-        <figure class="device side right"><img src="/assets/screens/explore.jpg" alt="Explore, showing 3D aerial views of courses nearby"></figure>
+      <div class="ga-stage reveal" id="stage">
+        <canvas id="globeHero" role="img" aria-label="A globe of famous golf courses, joined like a journey"></canvas>
+        <img class="card" src="/assets/cards/stamp.jpg" alt="A Scotland stamp postcard">
+        <figure class="device"><img src="/assets/screens/profile.jpg" alt="A golfer's Pinzo profile: name, home, courses, countries, rounds, handicap, favourite course and a globe of everywhere they've played"></figure>
       </div>
     </div>
   </section>
@@ -116,9 +106,9 @@
       <div>
         <h2>Every course in the world.</h2>
         <p>Championship links, nine-hole gems, par-three courses and indoor simulators in over 180 countries. Can't find yours? Add it in seconds.</p>
-        <div class="stat-row"><div><b>31,000+</b><span>courses and venues</span></div><div><b>180+</b><span>countries</span></div><div><b>0</b><span>ads, ever</span></div></div>
+        <div class="stat-row"><div><b data-count="31000" data-suffix="+">31,000+</b><span>courses and venues</span></div><div><b data-count="180" data-suffix="+">180+</b><span>countries</span></div><div><b>0</b><span>ads, ever</span></div></div>
       </div>
-      <figure class="device"><img src="/assets/screens/dark.jpg" alt="A Pinzo profile in dark mode"></figure>
+      <div class="world-globe"><canvas id="globeNight" role="img" aria-label="A night-time globe of golf courses"></canvas></div>
     </div>
   </section>
 
@@ -147,6 +137,29 @@
     }, { rootMargin: '0px 0px -8% 0px' });
     els.forEach(function (e) { io.observe(e); });
   })();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+<script src="/assets/globe.js"></script>
+<script>
+  PinzoGlobe(document.getElementById('globeHero'));
+  PinzoGlobe(document.getElementById('globeNight'), { dark: true, speed: .08, start: [20, -30] });
+  // The phone and postcard drift slightly with the pointer.
+  var st = document.getElementById('stage');
+  if (matchMedia('(hover: hover)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    st.addEventListener('mousemove', function (e) {
+      var b = st.getBoundingClientRect(), x = (e.clientX - b.left) / b.width - .5, y = (e.clientY - b.top) / b.height - .5;
+      st.querySelector('.device').style.transform = 'rotate(6deg) translate(' + x * -18 + 'px,' + y * -18 + 'px)';
+      st.querySelector('.card').style.transform = 'rotate(-8deg) translate(' + x * 24 + 'px,' + y * 24 + 'px)';
+    });
+  }
+</script><script>
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelectorAll('[data-count]').forEach(el => {
+  const end = +el.dataset.count, suffix = el.dataset.suffix || '';
+  new IntersectionObserver((es, io) => { if (!es[0].isIntersecting) return; io.disconnect();
+    const t0 = performance.now(); (function step(t){ const k = Math.min(1,(t-t0)/1400), e = 1-Math.pow(1-k,3);
+      el.textContent = Math.round(end*e).toLocaleString('en-GB') + suffix; if (k<1) requestAnimationFrame(step); })(t0); }).observe(el);
+});
 </script>
 </body>
 </html>

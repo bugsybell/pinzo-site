@@ -31,7 +31,6 @@
           <span class="badge">Coming soon to the App Store</span>
           <span class="cta-note">Free on iPhone</span>
         </div>
-        <div class="ga-hint"><i></i>Drag the globe.<span class="hover-only"> Hover a pin.</span></div>
       </div>
       <div class="ga-stage reveal" id="stage">
         <canvas id="globeHero" role="img" aria-label="A globe of famous golf courses, joined like a journey"></canvas>
@@ -72,8 +71,8 @@
       <p>Add photos of the day, a note and a scan of your scorecard to any round. Years later, Pinzo brings it back on the day: <i>“3 years ago today, you played Royal County Down.”</i> Finish a round with your Apple Watch and it can remind you to log it.</p>
     </div>
     <div class="split-media pair">
-      <figure class="device"><img src="/assets/screens/home.jpg" alt="Home, with the latest round at Royal County Down"></figure>
-      <figure class="device"><img src="/assets/screens/log.jpg" alt="Logging a round: course, date, score, scorecard, photos and a note"></figure>
+      <figure class="device"><img src="/assets/screens/home.jpg" alt="Home, with the latest round at Kingsbarns above the sea"></figure>
+      <figure class="device"><img src="/assets/screens/log.jpg" alt="Logging a round at the Old Course, St Andrews: date, score, scorecard and photos"></figure>
     </div>
   </section>
 
@@ -94,7 +93,7 @@
       <p>Every round, stamp and milestone becomes a postcard for your Stories, designed and made on your iPhone.</p>
     </div>
     <div class="cards reveal" tabindex="0" aria-label="Example share postcards">
-      <img src="/assets/cards/round.jpg" alt="A round postcard: a photo of Royal County Down with a Northern Ireland stamp, the date and a score of 80">
+      <img src="/assets/cards/round.jpg" alt="A round postcard: Kingsbarns Golf Links above the sea, a Scotland stamp, the date and a score of 80">
       <img src="/assets/cards/stamp.jpg" alt="A Scotland stamp postcard, first played at the Old Course, St Andrews">
       <img src="/assets/cards/milestone.jpg" alt="A brass milestone seal for golf in ten countries">
       <img src="/assets/cards/passport.jpg" alt="A whole-passport postcard: courses, countries, rounds and nine stamps">
@@ -123,7 +122,7 @@
 <footer class="site"><div class="wrap">
   <div><a href="/support/">Support</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="mailto:hello@pinzo.golf">hello@pinzo.golf</a></div>
   <div>© 2026 Pinzo Golf Ltd. Course data © OpenStreetMap contributors.</div>
-  <div style="flex-basis:100%;font-size:12px">Pinzo Golf Ltd is a private limited company registered in England &amp; Wales (company number 17360627). Registered office: Apartment 11, Wellingtonia House, Hellyer Close, North Ferriby, HU14 3JD, England.</div>
+  <div style="flex-basis:100%;font-size:12px">Pinzo Golf Ltd is a private limited company registered in England &amp; Wales (company number 17360627). Registered office: Wellingtonia House, Hellyer Close, North Ferriby, HU14 3JD, England.</div>
 </div></footer>
 <script>
   // Sections fade up gently as they arrive (skipped with Reduce Motion).
@@ -160,6 +159,24 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelec
     const t0 = performance.now(); (function step(t){ const k = Math.min(1,(t-t0)/1400), e = 1-Math.pow(1-k,3);
       el.textContent = Math.round(end*e).toLocaleString('en-GB') + suffix; if (k<1) requestAnimationFrame(step); })(t0); }).observe(el);
 });
+</script>
+<script>
+  // In-page links glide to their section over about a second, easing in and out.
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.querySelector(a.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      var start = scrollY, end = target.getBoundingClientRect().top + scrollY - 72, d = end - start;
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) { scrollTo(0, end); return; }
+      var dur = Math.min(1900, Math.max(1300, Math.abs(d) * 0.7)), t0 = performance.now();
+      (function step(t) {
+        var k = Math.min(1, (t - t0) / dur), e2 = k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+        scrollTo(0, start + d * e2);
+        if (k < 1) requestAnimationFrame(step); else history.replaceState(null, '', a.getAttribute('href'));
+      })(t0);
+    });
+  });
 </script>
 </body>
 </html>

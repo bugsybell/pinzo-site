@@ -3,70 +3,139 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pinzo — your golf passport</title>
-<meta name="description" content="Log every course you play, collect a passport stamp for every country, and watch your golf globe fill up.">
+<title>Pinzo — Where golf takes you</title>
+<meta name="description" content="Relive every course you've played, keep the rounds that mattered, and find the ones you've always dreamed of. Pinzo is a beautiful, private golf passport for iPhone.">
 <link rel="icon" href="/assets/favicon-64.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/InstrumentSerif-Regular.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="/assets/site.css">
-<meta property="og:title" content="Pinzo — your golf passport">
-<meta property="og:description" content="Log every course you play, collect a passport stamp for every country, and watch your golf globe fill up.">
-<meta property="og:image" content="https://pinzo.golf/assets/logo-512.png">
+<meta property="og:title" content="Pinzo — Where golf takes you">
+<meta property="og:description" content="Relive every course you've played, keep the rounds that mattered, and find the ones you've always dreamed of.">
+<meta property="og:image" content="https://pinzo.golf/assets/cards/passport.jpg">
 <meta property="og:url" content="https://pinzo.golf/">
-<meta name="theme-color" content="#243F37">
+<meta name="theme-color" content="#FBFAF7">
 </head>
-<body>
+<body class="home">
 <header class="site"><div class="wrap">
   <a class="brand" href="/"><img src="/assets/logo-512.png" alt=""> Pinzo</a>
-  <nav><a href="/support/">Support</a><a href="/privacy/">Privacy</a></nav>
+  <nav><a href="#how">How it works</a><a href="/support/">Support</a><a href="/privacy/">Privacy</a></nav>
 </div></header>
 
-<main class="wrap">
-  <section class="hero">
-    <div>
-      <h1>Your golf life, collected.</h1>
-      <p class="lead">Log every course you play, collect a passport stamp for every country, and watch your golf globe fill up.</p>
-      <span class="badge">Coming soon to the App Store <small>iPhone</small></span>
+<main>
+  <section class="hero2">
+    <svg class="contours" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <g fill="none" stroke="currentColor" stroke-width="1">
+        <path d="M-50 620 C 180 540, 320 700, 560 610 S 920 470, 1250 560"/>
+        <path d="M-50 660 C 200 580, 330 740, 580 650 S 940 520, 1250 610"/>
+        <path d="M-50 700 C 220 620, 350 780, 600 690 S 960 570, 1250 660"/>
+        <path d="M-50 160 C 160 90, 360 230, 600 140 S 980 40, 1250 120"/>
+        <path d="M-50 120 C 150 50, 350 190, 590 100 S 970 0, 1250 80"/>
+        <ellipse cx="980" cy="330" rx="150" ry="96"/><ellipse cx="980" cy="330" rx="210" ry="140"/><ellipse cx="980" cy="330" rx="270" ry="184"/>
+        <ellipse cx="190" cy="380" rx="90" ry="58"/><ellipse cx="190" cy="380" rx="140" ry="92"/>
+      </g>
+    </svg>
+    <div class="wrap hero2-grid">
+      <div class="hero2-copy reveal">
+        <h1>Where golf<br>takes you.</h1>
+        <p class="lead">Relive every course you've played, keep the rounds that mattered, and find the ones you've always dreamed of.</p>
+        <div class="cta">
+          <span class="badge">Coming soon to the App Store</span>
+          <span class="cta-note">Free on iPhone</span>
+        </div>
+      </div>
+      <div class="hero2-phones reveal">
+        <figure class="device side left"><img src="/assets/screens/passport.jpg" alt="The passport screen, with a globe of every country played"></figure>
+        <figure class="device main"><img src="/assets/screens/profile.jpg" alt="A golfer's Pinzo profile: name, home, courses, countries, rounds, handicap, favourite course and a globe of everywhere they've played"></figure>
+        <figure class="device side right"><img src="/assets/screens/explore.jpg" alt="Explore, showing 3D aerial views of courses nearby"></figure>
+      </div>
     </div>
-    <div class="phone"><img src="/assets/passport.jpg" alt="The Pinzo passport screen: a globe marked with every country played" width="500"></div>
   </section>
 
-  <section class="feature">
-    <div>
+  <section class="intro wrap reveal">
+    <p>Golf takes you to extraordinary places: a links at first light, a clifftop par three, a trip abroad with old friends. <em>Pinzo keeps them all.</em> Every course, every country and every round worth remembering, in one beautiful passport, with the places you're still dreaming of waiting on the next page.</p>
+  </section>
+
+  <section id="how" class="steps wrap">
+    <article class="step reveal">
+      <figure class="device"><img src="/assets/screens/played.jpg" alt="Adding courses you've played: search results with ticks and a tray of picked courses"></figure>
+      <span class="num">01</span>
+      <h2>Remember everywhere you've played.</h2>
+      <p>Add a lifetime of golf in minutes. Search more than 31,000 courses, tick the ones you remember, and add dates and scores only if you want to. Rounds recorded on Apple Watch come in from Apple Health.</p>
+    </article>
+    <article class="step reveal">
+      <figure class="device"><img src="/assets/screens/stamp.jpg" alt="A Scotland passport stamp being pressed onto a page"></figure>
+      <span class="num">02</span>
       <h2>A stamp for every country.</h2>
-      <p>Play somewhere new and Pinzo presses a stamp into your passport. Earn milestone seals too — 50 courses, breaking 80, the Old Course, five Open venues — and share each one the moment you collect it.</p>
-    </div>
-    <div><img src="/assets/stamps.jpg" alt="A new Scotland passport stamp being collected, with a button to share it" style="border-radius:24px"></div>
+      <p>Play somewhere new and Pinzo presses a stamp into your passport. Milestones arrive too: your fiftieth course, breaking eighty, the Old Course, every Home Nation.</p>
+    </article>
+    <article class="step reveal">
+      <figure class="device"><img src="/assets/screens/explore.jpg" alt="Explore, with 3D aerial views of nearby courses"></figure>
+      <span class="num">03</span>
+      <h2>Dream about what's next.</h2>
+      <p>Fly over any course in 3D, find the ones near you, and keep a bucket list of places you've always wanted to play. Pinzo marks the day you finally do.</p>
+    </article>
   </section>
 
-  <section class="feature flip">
-    <div>
-      <h2>Your whole golf history, in minutes.</h2>
-      <p>Add every course you've ever played in one go — rough dates are fine. Import rounds from Apple Health, recorded by Apple Watch and apps like Hole19 and 18Birdies. Then share a round or your whole passport.</p>
+  <section class="split wrap reveal">
+    <div class="split-copy">
+      <h2>Every round, a memory.</h2>
+      <p>Add photos and a note to any round. Years later, Pinzo brings it back on the day: <i>“3 years ago today, you played Royal County Down.”</i> Finish a round with your Apple Watch and it can remind you to log it.</p>
     </div>
-    <div><img src="/assets/share-passport.jpg" alt="A shareable Pinzo passport card showing courses, countries, rounds and stamps" style="border-radius:24px;max-width:420px;margin:0 auto"></div>
-  </section>
-
-  <section class="feature">
-    <div>
-      <h2>Every course in the world.</h2>
-      <p>More than 31,000 golf courses, short courses and indoor venues in over 180 countries — each one seen from the air in 3D. If yours is missing, add it in seconds.</p>
-      <div class="stat-row"><div><b>31k+</b><span>venues</span></div><div><b>180+</b><span>countries</span></div><div><b>0</b><span>ads</span></div></div>
-    </div>
-    <div>
-      <h2>Indoor rounds count too.</h2>
-      <p>Log simulator rounds at indoor venues and note the virtual course you played. They count towards your countries, and stay separate from the real thing. If you track golf on Apple Watch, Pinzo can remind you to log the round.</p>
+    <div class="split-media pair">
+      <figure class="device"><img src="/assets/screens/home.jpg" alt="Home, with the latest round at Royal County Down"></figure>
+      <figure class="device"><img src="/assets/screens/log.jpg" alt="Logging a round: course, date, score, photos and a note"></figure>
     </div>
   </section>
 
-  <section class="privacy-band">
-    <h2>Private by design.</h2>
-    <p>No ads, no tracking and no account required. Your passport lives on your iPhone and in your own iCloud — we never see it. <a href="/privacy/">Read our privacy policy</a>.</p>
+  <section class="share">
+    <div class="wrap reveal">
+      <h2>Made to be shared.</h2>
+      <p>Every round, stamp and milestone becomes a postcard for your Stories, designed and made on your iPhone.</p>
+    </div>
+    <div class="cards reveal" tabindex="0" aria-label="Example share postcards">
+      <img src="/assets/cards/round.jpg" alt="A round postcard: a photo of Royal County Down with a Northern Ireland stamp, the date and a score of 80">
+      <img src="/assets/cards/stamp.jpg" alt="A Scotland stamp postcard, first played at the Old Course, St Andrews">
+      <img src="/assets/cards/milestone.jpg" alt="A brass milestone seal for golf in ten countries">
+      <img src="/assets/cards/passport.jpg" alt="A whole-passport postcard: courses, countries, rounds and nine stamps">
+    </div>
+  </section>
+
+  <section class="world">
+    <div class="wrap world-grid reveal">
+      <div>
+        <h2>Every course in the world.</h2>
+        <p>Championship links, nine-hole gems, par-three courses and indoor simulators in over 180 countries. Can't find yours? Add it in seconds.</p>
+        <div class="stat-row"><div><b>31,000+</b><span>courses and venues</span></div><div><b>180+</b><span>countries</span></div><div><b>0</b><span>ads, ever</span></div></div>
+      </div>
+      <figure class="device"><img src="/assets/screens/dark.jpg" alt="A Pinzo profile in dark mode"></figure>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="privacy-band reveal">
+      <h2>Private by design.</h2>
+      <p>No ads, no tracking and no account required. Your passport lives on your iPhone and in your own iCloud, where we can't see it. <a href="/privacy/">Read our privacy policy</a>.</p>
+    </div>
   </section>
 </main>
+
 <footer class="site"><div class="wrap">
   <div><a href="/support/">Support</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="mailto:hello@pinzo.golf">hello@pinzo.golf</a></div>
   <div>© 2026 Pinzo Golf Ltd. Course data © OpenStreetMap contributors.</div>
   <div style="flex-basis:100%;font-size:12px">Pinzo Golf Ltd is a private limited company registered in England &amp; Wales (company number 17360627). Registered office: Apartment 11, Wellingtonia House, Hellyer Close, North Ferriby, HU14 3JD, England.</div>
 </div></footer>
+<script>
+  // Sections fade up gently as they arrive (skipped with Reduce Motion).
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      els.forEach(function (e) { e.classList.add('in'); }); return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+</script>
 </body>
 </html>

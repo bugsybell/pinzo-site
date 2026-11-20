@@ -22,7 +22,8 @@
   .invite h1 { margin: 28px 0 12px; }
   .invite p { max-width: 30em; margin: 0 auto 28px; }
   .invite .open { display: inline-block; padding: 16px 32px; border-radius: 999px; background: var(--forest, #243F37); color: #fff; font-weight: 600; text-decoration: none; }
-  .invite .small { margin-top: 28px; font-size: 15px; opacity: .75; }
+  .invite .small { margin-top: 28px; font-size: 15px; color: var(--ink-soft); }
+  .invite .small a { color: var(--forest); font-weight: 600; }
 </style>
 </head>
 <body>
@@ -33,9 +34,9 @@
 <main class="wrap narrow invite">
   <img class="logo" src="/assets/logo-512.png" alt="">
   <h1>You're invited to Pinzo</h1>
-  <p>A friend would like to share where golf has taken them: the courses they've played, their stamps and every new round. Open the invite in Pinzo on your iPhone to accept.</p>
-  <a class="open" id="open" href="pinzo://invite">Open in Pinzo</a>
-  <p class="small">Don't have Pinzo yet? It's free on the App Store. Get the app, then tap your invite link again. Each link works once and lasts seven days.</p>
+  <p>A friend would love to share every course they've played with you: their stamps, their favourite courses and every new round. Pinzo is free on iPhone.</p>
+  <a class="open" id="store" href="https://apps.apple.com/app/pinzo">Get Pinzo on the App Store</a>
+  <p class="small">Already have Pinzo? <a id="open" href="pinzo://invite">Open your invite</a>.<br>After installing, tap your invite link again. Each link works once and lasts seven days.</p>
 </main>
 <footer class="site"><div class="wrap">
   <div><a href="/support/">Support</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="mailto:hello@pinzo.golf">hello@pinzo.golf</a></div>
@@ -45,6 +46,11 @@
   // The code stays in this page; it isn't sent anywhere except to the Pinzo app.
   var c = new URLSearchParams(location.search).get('c');
   if (c && /^[A-Za-z0-9]{10,32}$/.test(c)) document.getElementById('open').href = 'pinzo://invite?c=' + c;
+  // Set APP_STORE_ID once Pinzo is live (App Store Connect → App Information → Apple ID).
+  var APP_STORE_ID = '';
+  document.getElementById('store').href = APP_STORE_ID
+    ? 'https://apps.apple.com/app/id' + APP_STORE_ID
+    : 'itms-apps://search.itunes.apple.com/WebObjects/MZSearch.woa/wa/search?media=software&term=Pinzo%20golf';
 </script>
 </body>
 </html>

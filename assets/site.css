@@ -180,3 +180,5 @@ section.feature img { width: 100%; height: auto; }
 @media(max-width:560px){.ga-stage{height:400px}.ga-stage canvas{width:min(360px,100%)}.ga-stage .device{width:130px;bottom:-10px}.ga-stage .card{width:90px;top:10px}}
 
 @media (hover: none) { .hover-only { display: none; } }
+
+.credits{font-size:13px;color:var(--ink-muted);max-width:70ch;margin:18px auto 0;text-align:center;line-height:1.5}

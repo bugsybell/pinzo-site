@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /invite/
+
+Sitemap: https://pinzo.golf/sitemap.xml

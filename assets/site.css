@@ -183,4 +183,4 @@ section.feature img { width: 100%; height: auto; }
 
 .credits{font-size:13px;color:var(--ink-muted);max-width:70ch;margin:18px auto 0;text-align:center;line-height:1.5}
 
-.ga-hero .eyebrow{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin:0 0 18px}
+.ga-hero .eyebrow{color:var(--ink-muted);font-size:15px;margin:0 0 14px}

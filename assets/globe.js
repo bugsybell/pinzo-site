@@ -37,17 +37,19 @@
       ? { sphere: ['#1d2f27', '#0f1a15'], rim: 'rgba(216,181,120,.18)', dot: [166, 190, 172], pin: '#D8B578', arc: 'rgba(216,181,120,.55)', label: '#F4F1E8', labelBg: 'rgba(20,35,29,.92)' }
       : { sphere: ['#ffffff', '#e6ece7'], rim: 'rgba(31,56,47,.14)', dot: [62, 102, 80], pin: '#1F382F', arc: 'rgba(31,56,47,.45)', label: '#1B1E1C', labelBg: 'rgba(255,255,255,.95)' };
 
+    // Always square: Safari can lay a canvas out at its default 2:1 shape, which clipped the globe.
     function size() {
-      const w = canvas.clientWidth, h = canvas.clientHeight || w;
-      canvas.width = w * dpr; canvas.height = h * dpr;
-      proj.translate([w / 2, h / 2]).scale(Math.min(w, h) / 2 - 2);
+      const w = canvas.clientWidth;
+      canvas.style.height = w + 'px';
+      canvas.width = w * dpr; canvas.height = w * dpr;
+      proj.translate([w / 2, w / 2]).scale(w / 2 - 6);
     }
     size();
     new ResizeObserver(size).observe(canvas);
     new IntersectionObserver(e => { visible = e[0].isIntersecting; }).observe(canvas);
 
     function draw(t) {
-      const w = canvas.clientWidth, h = canvas.clientHeight || w, r = proj.scale(), [cx, cy] = proj.translate();
+      const w = canvas.clientWidth, h = w, r = proj.scale(), [cx, cy] = proj.translate();
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, w, h);
       const g = ctx.createRadialGradient(cx - r * .35, cy - r * .4, r * .1, cx, cy, r);

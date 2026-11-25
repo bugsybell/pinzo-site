@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="apple-itunes-app" content="app-id=6798244930">
 <title>You're invited to Pinzo</title>
 <meta name="description" content="A friend would love to share every course they've played with you. Your golf, beautifully kept.">
 <meta name="robots" content="noindex">
@@ -35,7 +36,7 @@
   <img class="logo" src="/assets/logo-512.png" alt="">
   <h1>You're invited to Pinzo</h1>
   <p>A friend would love to share every course they've played with you: their stamps, their favourite courses and every new round. Pinzo is free on iPhone.</p>
-  <a class="open" id="store" href="https://apps.apple.com/app/pinzo">Get Pinzo on the App Store</a>
+  <a class="open" id="store" href="https://apps.apple.com/app/id6798244930">Get Pinzo on the App Store</a>
   <p class="small">Already have Pinzo? <a id="open" href="pinzo://invite">Open your invite</a>.<br>After installing, tap your invite link again. Each link works once and lasts seven days.</p>
 </main>
 <footer class="site"><div class="wrap">
@@ -47,7 +48,7 @@
   var c = new URLSearchParams(location.search).get('c');
   if (c && /^[A-Za-z0-9]{10,32}$/.test(c)) document.getElementById('open').href = 'pinzo://invite?c=' + c;
   // Set APP_STORE_ID once Pinzo is live (App Store Connect → App Information → Apple ID).
-  var APP_STORE_ID = '';
+  var APP_STORE_ID = '6798244930';
   document.getElementById('store').href = APP_STORE_ID
     ? 'https://apps.apple.com/app/id' + APP_STORE_ID
     : 'itms-apps://search.itunes.apple.com/WebObjects/MZSearch.woa/wa/search?media=software&term=Pinzo%20golf';
